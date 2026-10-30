@@ -356,8 +356,21 @@
     }
 
     @keyframes pulse {
-      50% { filter: brightness(1.25) drop-shadow(0 0 12px #ff4dff); }
+      0%,100% { filter: brightness(1) drop-shadow(0 0 4px #b98cff) drop-shadow(0 0 10px #5ff4ff); }
+      50% { filter: brightness(1.35) drop-shadow(0 0 10px #ff4dff) drop-shadow(0 0 26px #5ff4ff) drop-shadow(0 0 44px #b98cff); }
     }
+    .shell-wrap { position: relative; width: clamp(88px, 28vw, 120px); max-width: 40%; margin: 0 auto 8px; }
+    .shell-wrap .shell-mark { width: 100%; max-width: none; margin: 0; position: relative; z-index: 1; }
+    .shell-wrap::before {
+      content: ""; position: absolute; inset: -60%; z-index: 0; pointer-events: none; border-radius: 50%;
+      background: repeating-conic-gradient(from 0deg, rgba(95,244,255,.55) 0deg 3deg, transparent 3deg 20deg, rgba(185,140,255,.5) 20deg 23deg, transparent 23deg 40deg);
+      -webkit-mask: radial-gradient(circle, transparent 22%, #000 30%, transparent 70%);
+      mask: radial-gradient(circle, transparent 22%, #000 30%, transparent 70%);
+      animation: rays 2.4s ease-in-out infinite, spin 18s linear infinite;
+    }
+    @keyframes rays { 0%,100% { opacity: .25; transform: scale(.85); } 50% { opacity: .9; transform: scale(1.1); } }
+    @keyframes spin { to { rotate: 360deg; } }
+    @media (prefers-reduced-motion: reduce) { .shell-mark, .shell-wrap::before { animation: none; } }
 
     .x-link {
       display: inline-flex;
@@ -429,7 +442,7 @@
 <body>
   <div class="wrap">
     <header>
-      <img class="shell-mark" src="assets/shell-glow.png" alt="" width="160" height="160">
+      <div class="shell-wrap"><img class="shell-mark" src="assets/shell-glow.png" alt="" width="160" height="160"></div>
       <img
         class="logo"
         src="assets/logo.jpg"
