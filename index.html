@@ -289,12 +289,15 @@
       .formats { grid-template-columns: 1fr; }
       .points { grid-template-columns: 1fr 1fr 1fr; }
     }
+    .shell-mark{display:block;width:120px;height:auto;margin:0 auto 8px;animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{50%{filter:brightness(1.25) drop-shadow(0 0 12px #ff4dff)}}
   </style>
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-512.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 </head>
 <body>
   <div class="wrap">
     <header>
+      <img class="shell-mark" src="assets/shell-glow.png" alt="" width="160" height="160">
       <img
         class="logo"
         src="assets/logo.jpg"
