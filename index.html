@@ -464,12 +464,12 @@
         0 0 36px rgba(185,140,255,.45);
       text-shadow: 0 0 1px rgba(26,11,46,.5);
     }
-    .cta.beeper::before {
-      font-family: ui-monospace, monospace;
-      content: "\25CF PAGE";
-      position: absolute; top: 4px; left: 10px;
-      font-size: .55rem; letter-spacing: .15em; opacity: .55;
+    @keyframes tealPulse {
+      0%,100% { border-color:#22d3ee; box-shadow: inset 0 2px 6px rgba(26,11,46,.45), 0 0 0 8px #1b1030, 0 0 10px rgba(34,211,238,.35), 0 0 30px rgba(185,140,255,.35); }
+      50% { border-color:#7af3ff; box-shadow: inset 0 2px 6px rgba(26,11,46,.45), 0 0 0 8px #1b1030, 0 0 26px rgba(34,211,238,.95), 0 0 48px rgba(34,211,238,.5); }
     }
+    .cta.beeper { animation: tealPulse 2.2s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { .cta.beeper { animation: none; } }
     .cta.beeper:hover { filter: brightness(1.08); }
     footer .cta-row { margin: .6rem 0 .2rem; }
   </style>
