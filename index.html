@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
   <title>neon shell</title>
   <meta name="description" content="Neon Shell puts your brand on LED trucks — parked or rolling. Book in a day, see the price up front.">
   <style>
@@ -18,7 +20,10 @@
       --border: rgba(216, 180, 254, 0.18);
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
 
     body {
       background: var(--bg);
@@ -27,6 +32,8 @@
       -webkit-font-smoothing: antialiased;
       line-height: 1.55;
       min-height: 100dvh;
+      overflow-x: clip;
+      font-size: clamp(0.9rem, 0.85rem + 0.4vw, 1rem);
     }
 
     .glow {
@@ -38,7 +45,7 @@
     .wrap {
       width: min(100%, 40rem);
       margin: 0 auto;
-      padding: 1.5rem 1.25rem 2.5rem;
+      padding: 1.5rem clamp(1rem, 4vw, 1.25rem) 2.5rem;
     }
 
     header {
@@ -48,6 +55,7 @@
 
     .logo {
       width: min(100%, 320px);
+      max-width: 100%;
       height: auto;
       image-rendering: pixelated;
       image-rendering: crisp-edges;
@@ -56,7 +64,7 @@
     }
 
     h1 {
-      font-size: clamp(1.15rem, 5.2vw, 1.55rem);
+      font-size: clamp(1.05rem, 4.8vw, 1.55rem);
       font-weight: 600;
       letter-spacing: 0.02em;
       color: var(--lavender);
@@ -83,22 +91,27 @@
     }
 
     .sub {
-      font-size: 0.88rem;
+      font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+      font-weight: 600;
       color: var(--muted);
-      text-shadow: 0 0 10px rgba(167, 139, 250, 0.2);
+      text-shadow:
+        0 0 10px rgba(167, 139, 250, 0.45),
+        0 0 22px rgba(216, 180, 254, 0.28);
       margin-bottom: 1.5rem;
       max-width: 36rem;
       margin-left: auto;
       margin-right: auto;
+      letter-spacing: 0.04em;
     }
 
     .cta {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-height: 44px;
       padding: 0.9rem 1.35rem;
       font: inherit;
-      font-size: 0.95rem;
+      font-size: clamp(0.9rem, 2.5vw, 0.95rem);
       font-weight: 600;
       letter-spacing: 0.03em;
       color: var(--bg);
@@ -131,6 +144,16 @@
       margin: 0.25rem 0 0.5rem;
     }
 
+    @media (max-width: 480px) {
+      .cta-row {
+        width: 100%;
+      }
+      .cta-row .cta {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
     .offer {
       margin: 2rem 0 0;
       padding: 1.1rem 1rem;
@@ -141,21 +164,21 @@
     }
 
     .offer .price {
-      font-size: 1.15rem;
+      font-size: clamp(1.05rem, 3.5vw, 1.15rem);
       font-weight: 600;
       color: var(--lavender);
       text-shadow: 0 0 12px rgba(216, 180, 254, 0.4);
     }
 
     .offer .detail {
-      font-size: 0.78rem;
+      font-size: clamp(0.72rem, 2.2vw, 0.78rem);
       color: var(--dim);
       margin-top: 0.4rem;
     }
 
     .offer .spark {
       margin-top: 0.75rem;
-      font-size: 0.85rem;
+      font-size: clamp(0.8rem, 2.5vw, 0.85rem);
       color: var(--cyan);
       text-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
     }
@@ -165,7 +188,7 @@
     }
 
     h2 {
-      font-size: 0.78rem;
+      font-size: clamp(0.72rem, 2.2vw, 0.78rem);
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -188,7 +211,7 @@
     }
 
     .card h3 {
-      font-size: 0.95rem;
+      font-size: clamp(0.9rem, 2.6vw, 0.95rem);
       font-weight: 600;
       color: var(--lavender);
       margin-bottom: 0.3rem;
@@ -196,7 +219,7 @@
     }
 
     .card p {
-      font-size: 0.8rem;
+      font-size: clamp(0.75rem, 2.2vw, 0.8rem);
       color: var(--muted);
     }
 
@@ -211,9 +234,10 @@
       background: var(--bg-elev);
       border: 1px solid var(--border);
       border-radius: 6px;
-      font-size: 0.78rem;
+      font-size: clamp(0.72rem, 2.2vw, 0.78rem);
       color: var(--muted);
       text-align: left;
+      min-height: 44px;
     }
 
     .point strong {
@@ -221,7 +245,7 @@
       color: var(--lavender);
       font-weight: 600;
       margin-bottom: 0.15rem;
-      font-size: 0.82rem;
+      font-size: clamp(0.78rem, 2.4vw, 0.82rem);
       text-shadow: 0 0 6px rgba(216, 180, 254, 0.25);
     }
 
@@ -230,11 +254,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      font-size: 0.78rem;
+      font-size: clamp(0.72rem, 2.2vw, 0.78rem);
     }
 
     .steps li {
-      padding: 0.4rem 0.65rem;
+      padding: 0.55rem 0.75rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
       border: 1px solid var(--border);
       border-radius: 999px;
       color: var(--muted);
@@ -249,7 +276,7 @@
     }
 
     .markets {
-      font-size: 0.85rem;
+      font-size: clamp(0.8rem, 2.4vw, 0.85rem);
       color: var(--muted);
     }
 
@@ -262,7 +289,7 @@
       padding-top: 1.5rem;
       border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 0.8rem;
+      font-size: clamp(0.75rem, 2.2vw, 0.8rem);
       color: var(--dim);
     }
 
@@ -279,6 +306,14 @@
       outline: none;
     }
 
+    footer > a[href^="tel:"] {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.5rem 0.75rem;
+    }
+
     .domain {
       margin-top: 0.4rem;
       font-size: 0.7rem;
@@ -289,15 +324,81 @@
       .formats { grid-template-columns: 1fr; }
       .points { grid-template-columns: 1fr 1fr 1fr; }
     }
-    .shell-mark{display:block;width:120px;height:auto;margin:0 auto 8px;animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{50%{filter:brightness(1.25) drop-shadow(0 0 12px #ff4dff)}}
-  .x-link{display:inline-block;margin:14px auto 0;color:#e9d5ff;opacity:.85;transition:.2s}.x-link:hover{opacity:1;color:#5ff;filter:drop-shadow(0 0 8px #5ff)}
-  footer .x-link{display:block;width:22px}
-  .hero-trucks{width:100vw;margin:28px calc(50% - 50vw) 36px;padding:0}
-  .hero-trucks img{display:block;width:100%;max-width:1400px;height:auto;margin:0 auto;border-radius:6px;box-shadow:0 0 40px rgba(255,77,255,.35),0 0 90px rgba(95,255,255,.18)}
-  @media(min-width:900px){.hero-trucks img{width:92%}}
+
+    .shell-mark {
+      display: block;
+      width: clamp(88px, 28vw, 120px);
+      max-width: 40%;
+      height: auto;
+      margin: 0 auto 8px;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      50% { filter: brightness(1.25) drop-shadow(0 0 12px #ff4dff); }
+    }
+
+    .x-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 14px auto 0;
+      color: #e9d5ff;
+      opacity: 0.85;
+      transition: 0.2s;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 11px;
+      box-sizing: border-box;
+    }
+
+    .x-link:hover {
+      opacity: 1;
+      color: #5ff;
+      filter: drop-shadow(0 0 8px #5ff);
+    }
+
+    footer .x-link {
+      display: inline-flex;
+      width: auto;
+    }
+
+    .hero-trucks {
+      width: 100%;
+      max-width: 100%;
+      margin: 28px 0 36px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .hero-trucks img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      border-radius: 6px;
+      box-shadow:
+        0 0 40px rgba(255, 77, 255, 0.35),
+        0 0 90px rgba(95, 255, 255, 0.18);
+    }
+
+    @media (min-width: 900px) {
+      .hero-trucks {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+      }
+      .hero-trucks img {
+        width: 92%;
+        max-width: 1400px;
+      }
+    }
   </style>
-<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" href="/assets/favicon-512.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/favicon-512.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 </head>
 <body>
   <div class="wrap">
@@ -306,25 +407,35 @@
       <img
         class="logo"
         src="assets/logo.jpg"
+        srcset="assets/logo-800.jpg 800w, assets/logo.jpg 1152w"
+        sizes="(max-width: 480px) 90vw, 320px"
         alt="neon shell"
         width="640"
         height="188"
       >
       <h1 class="glow">> Sell the moment. We bring the truck.<span class="cursor" aria-hidden="true"></span></h1>
-      <p class="sub">Neon Shell puts your brand on LED trucks parked at the gate or rolling through the crowd at California&rsquo;s biggest moments. Book in a day, see the price up front and get GPS and photo proof of every run.</p>
+      <p class="sub">Neon Shell Agency</p>
       <div class="cta-row">
         <a class="cta" href="tel:+14244242034">Call (424) 424-2034</a>
       </div>
     </header>
 
     <figure class="hero-trucks">
-      <img src="assets/trucks.jpg" alt="Four Neon Shell LED trucks climbing the California Incline in Santa Monica at sunset" width="1024" height="576" loading="eager">
+      <img
+        src="assets/trucks.jpg"
+        srcset="assets/trucks-800.jpg 800w, assets/trucks.jpg 1280w"
+        sizes="(max-width: 800px) 100vw, min(1400px, 92vw)"
+        alt="Four Neon Shell LED trucks climbing the California Incline in Santa Monica at sunset"
+        width="1280"
+        height="720"
+        loading="eager"
+      >
     </figure>
 
     <div class="offer">
       <p class="price">$2,000 / truck / day</p>
       <p class="detail">Parked or mobile — includes truck, driver, LED playback, GPS + photo proof</p>
-      <p class="spark">Spark from $999/mo</p>
+      <p class="spark">Subscriptions available, starting at $999</p>
     </div>
 
     <section>
@@ -379,12 +490,20 @@
     </div>
 
     <figure class="hero-trucks">
-      <img src="assets/goldengate.jpg" alt="Neon Shell LED trucks crossing the Golden Gate Bridge at night with the San Francisco skyline" width="1280" height="720" loading="lazy">
+      <img
+        src="assets/goldengate.jpg"
+        srcset="assets/goldengate-800.jpg 800w, assets/goldengate.jpg 1280w"
+        sizes="(max-width: 800px) 100vw, min(1400px, 92vw)"
+        alt="Neon Shell LED trucks crossing the Golden Gate Bridge at night with the San Francisco skyline"
+        width="1280"
+        height="720"
+        loading="lazy"
+      >
     </figure>
 
     <footer>
       <a href="tel:+14244242034">Call (424) 424-2034</a>
-      <a class="x-link" href="https://x.com/NeonShellAgency" target="_blank" rel="noopener" aria-label="Neon Shell on X"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a class="x-link" href="https://x.com/NeonShellAgency" target="_blank" rel="noopener noreferrer" aria-label="Neon Shell on X"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       <p class="domain">neonshell.si</p>
     </footer>
   </div>
