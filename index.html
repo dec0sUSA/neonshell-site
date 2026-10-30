@@ -96,7 +96,7 @@
     }
 
     .sub {
-      font-size: clamp(0.95rem, 2.8vw, 1.15rem);
+      font-size: clamp(1.1rem, 3.4vw, 1.35rem);
       font-weight: 600;
       color: var(--muted);
       text-shadow:
@@ -437,13 +437,17 @@
     .steps{display:grid;grid-template-columns:repeat(3,1fr)}
     .steps li{justify-content:center}
 
+    @font-face { font-family: "DSEG14"; src: url("assets/dseg14.woff2") format("woff2"); font-display: swap; }
     /* pager / beeper LCD window */
     .cta.beeper {
       position: relative;
-      padding: 1.1rem 2.2rem;
-      font-family: "VT323", "Courier New", ui-monospace, monospace;
-      font-size: clamp(1.05rem, 3.4vw, 1.25rem);
-      letter-spacing: 0.12em;
+      padding: 1.2rem 1.4rem;
+      font-family: "DSEG14", "Courier New", ui-monospace, monospace;
+      font-size: clamp(1.05rem, 4.6vw, 1.6rem);
+      font-weight: 700;
+      white-space: nowrap;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       color: #1a0b2e;
       background:
         repeating-linear-gradient(0deg, rgba(26,11,46,.07) 0 1px, transparent 1px 3px),
@@ -461,6 +465,7 @@
       text-shadow: 0 0 1px rgba(26,11,46,.5);
     }
     .cta.beeper::before {
+      font-family: ui-monospace, monospace;
       content: "\25CF PAGE";
       position: absolute; top: 4px; left: 10px;
       font-size: .55rem; letter-spacing: .15em; opacity: .55;
@@ -487,9 +492,9 @@
       >
       <h1 class="glow">> Sell the moment. <span style="white-space:nowrap">We bring the truck.<span class="cursor" aria-hidden="true"></span></span></h1>
       <div class="cta-row">
-        <a class="cta beeper" href="tel:+14244242034">Call (424) 424-2034</a>
+        <a class="cta beeper" href="tel:+14244242034" aria-label="Call (424) 424-2034">Call 424-424-2034</a>
       </div>
-      <p class="sub">Neon Shell Agency</p>
+      <p class="sub">Neon Shell Agency (NSA)</p>
     </header>
 
     <figure class="hero-trucks">
@@ -637,9 +642,9 @@
     <footer>
       <p class="quote glow">&ldquo;The medium is the message.&rdquo;</p>
       <div class="cta-row">
-        <a class="cta beeper" href="tel:+14244242034">Call (424) 424-2034</a>
+        <a class="cta beeper" href="tel:+14244242034" aria-label="Call (424) 424-2034">Call 424-424-2034</a>
       </div>
-      <p class="sub">Neon Shell Agency</p>
+      <p class="sub">Neon Shell Agency (NSA)</p>
       <a class="x-link" href="https://x.com/NeonShellAgency" target="_blank" rel="noopener noreferrer" aria-label="Neon Shell on X"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
       <p class="domain">neonshell.si</p>
     </footer>
