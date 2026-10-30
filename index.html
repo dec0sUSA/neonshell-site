@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'">
-  <title>neon shell</title>
+  <title>Neon Shell Agency</title>
   <meta name="description" content="Neon Shell puts your brand on LED trucks — parked or rolling. Book in a day, see the price up front.">
+  <meta property="og:title" content="Neon Shell Agency">
+  <meta property="og:description" content="Neon Shell puts your brand on LED trucks — parked or rolling. Book in a day, see the price up front.">
+  <meta property="og:image" content="https://neonshell.si/assets/og-card.jpg">
+  <meta property="og:url" content="https://neonshell.si/">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -174,9 +179,12 @@
       font-size: clamp(0.72rem, 2.2vw, 0.78rem);
       color: var(--dim);
       margin-top: 0.4rem;
+      text-shadow:
+        0 0 6px rgba(216, 180, 254, 0.28),
+        0 0 14px rgba(34, 211, 238, 0.12);
     }
 
-    .offer .spark {
+    .offer .subs {
       margin-top: 0.75rem;
       font-size: clamp(0.8rem, 2.5vw, 0.85rem);
       color: var(--cyan);
@@ -221,6 +229,9 @@
     .card p {
       font-size: clamp(0.75rem, 2.2vw, 0.8rem);
       color: var(--muted);
+      text-shadow:
+        0 0 6px rgba(216, 180, 254, 0.28),
+        0 0 14px rgba(34, 211, 238, 0.12);
     }
 
     .points {
@@ -266,6 +277,9 @@
       border-radius: 999px;
       color: var(--muted);
       background: var(--bg-elev);
+      text-shadow:
+        0 0 6px rgba(216, 180, 254, 0.28),
+        0 0 14px rgba(34, 211, 238, 0.12);
     }
 
     .steps li::before {
@@ -278,6 +292,9 @@
     .markets {
       font-size: clamp(0.8rem, 2.4vw, 0.85rem);
       color: var(--muted);
+      text-shadow:
+        0 0 6px rgba(216, 180, 254, 0.28),
+        0 0 14px rgba(34, 211, 238, 0.12);
     }
 
     .markets span {
@@ -318,6 +335,9 @@
       margin-top: 0.4rem;
       font-size: 0.7rem;
       opacity: 0.7;
+      text-shadow:
+        0 0 6px rgba(216, 180, 254, 0.28),
+        0 0 14px rgba(34, 211, 238, 0.12);
     }
 
     @media (min-width: 520px) {
@@ -414,9 +434,9 @@
         src="assets/logo.jpg"
         srcset="assets/logo-800.jpg 800w, assets/logo.jpg 1152w"
         sizes="(max-width: 480px) 90vw, 320px"
-        alt="neon shell"
-        width="640"
-        height="188"
+        alt="Neon Shell"
+        width="1152"
+        height="864"
       >
       <h1 class="glow">> Sell the moment. <span style="white-space:nowrap">We bring the truck.<span class="cursor" aria-hidden="true"></span></span></h1>
       <p class="sub">Neon Shell Agency</p>
@@ -439,12 +459,20 @@
 
     <div class="offer">
       <p class="price">$2,000 / truck / day</p>
-      <p class="detail">Parked or mobile — includes truck, driver, LED playback, GPS + photo proof</p>
-      <p class="spark">Subscriptions available, starting at $999</p>
+      <p class="detail">Parked or mobile — includes truck, driver, LED playback and GPS + photo proof</p>
+      <p class="subs">Subscriptions available, starting at $999</p>
     </div>
 
     <figure class="hero-trucks" style="max-width:520px;margin-left:auto;margin-right:auto;">
-      <img src="assets/gta6-truck.jpg" alt="Neon Shell LED truck showing a GTA VI style ad with neon glow and smoke" width="864" height="1152" loading="lazy">
+      <img
+        src="assets/gta6-truck.jpg"
+        srcset="assets/gta6-truck-800.jpg 800w, assets/gta6-truck.jpg 864w"
+        sizes="(max-width: 520px) 100vw, 520px"
+        alt="Neon Shell LED truck showing a GTA VI style ad with neon glow and smoke"
+        width="864"
+        height="1152"
+        loading="lazy"
+      >
     </figure>
 
     <section>
@@ -469,10 +497,26 @@
       </div>
     </section>
     <figure class="hero-trucks" style="max-width:640px;margin-left:auto;margin-right:auto;">
-      <img src="assets/cyberdeck-truck.jpg" alt="Rent Cyberdeck for your event: Neon Shell giant LED screen truck at a night festival" width="1024" height="1024" loading="lazy">
+      <img
+        src="assets/cyberdeck-truck.jpg"
+        srcset="assets/cyberdeck-truck-800.jpg 800w, assets/cyberdeck-truck.jpg 1024w"
+        sizes="(max-width: 640px) 100vw, 640px"
+        alt="Rent CyberDeck for your event: Neon Shell giant LED screen truck at a night festival"
+        width="1024"
+        height="1024"
+        loading="lazy"
+      >
     </figure>
     <figure class="hero-trucks">
-      <img src="assets/whitehouse-truck.jpg" alt="Neon Shell LED truck parked outside the White House" width="768" height="576" loading="lazy">
+      <img
+        src="assets/whitehouse-truck.jpg"
+        srcset="assets/whitehouse-truck-800.jpg 800w, assets/whitehouse-truck.jpg 1152w"
+        sizes="(max-width: 800px) 100vw, min(1400px, 92vw)"
+        alt="Neon Shell LED truck parked outside the White House"
+        width="1152"
+        height="864"
+        loading="lazy"
+      >
     </figure>
 
     <section>
@@ -487,7 +531,15 @@
       </div>
     </section>
     <figure class="hero-trucks">
-      <img src="assets/justtryit-trucks.jpg" alt="Neon Shell LED trucks at night: Steve Hilton for Governor, then Just Try It" width="1280" height="720" loading="lazy">
+      <img
+        src="assets/justtryit-trucks.jpg"
+        srcset="assets/justtryit-trucks-800.jpg 800w, assets/justtryit-trucks.jpg 1280w"
+        sizes="(max-width: 800px) 100vw, min(1400px, 92vw)"
+        alt="Neon Shell LED trucks at night: Steve Hilton for Governor, then Just Try It"
+        width="1280"
+        height="720"
+        loading="lazy"
+      >
     </figure>
 
     <section>
