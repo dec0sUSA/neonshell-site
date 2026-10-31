@@ -471,6 +471,10 @@
     @media (prefers-reduced-motion: reduce) { .cta.beeper { animation: none; } }
     .cta.beeper:hover { filter: brightness(1.08); }
     footer .cta-row { margin: .6rem 0 .2rem; }
+
+    .social .x-link { margin: 14px 0 0; color: #e9d5ff; animation: iconpulse 2.4s ease-in-out infinite; }
+    @keyframes iconpulse { 0%,100% { opacity:.8; filter: drop-shadow(0 0 3px #a855f7); } 50% { opacity:1; color:#5ff; filter: drop-shadow(0 0 10px #5ff) drop-shadow(0 0 18px #a855f7); } }
+    @media (prefers-reduced-motion: reduce) { .social .x-link { animation: none; } }
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/assets/favicon-512.png">
